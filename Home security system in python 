@@ -1,0 +1,52 @@
+# Home Security System in Python
+
+correct_password = "1234"
+alarm = False
+
+print("===== HOME SECURITY SYSTEM =====")
+
+password = input("Enter security password: ")
+
+if password != correct_password:
+    print("❌ Wrong Password!")
+    print("🚨 ALARM ON!")
+    alarm = True
+else:
+    print("✅ Access Granted.")
+
+while not alarm:
+    print("\n1. Check Door")
+    print("2. Check Motion Sensor")
+    print("3. Change Password")
+    print("4. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        door = input("Is the door open? (yes/no): ")
+
+        if door.lower() == "yes":
+            print("🚨 ALERT: Door is open!")
+        else:
+            print("✅ Door is secure.")
+
+    elif choice == "2":
+        motion = input("Is motion detected? (yes/no): ")
+
+        if motion.lower() == "yes":
+            print("🚨 ALERT: Motion detected!")
+            print("🔔 Alarm activated!")
+        else:
+            print("✅ No motion detected.")
+
+    elif choice == "3":
+        new_password = input("Enter new password: ")
+        correct_password = new_password
+        print("✅ Password changed successfully.")
+
+    elif choice == "4":
+        print("Home Security System Closed.")
+        break
+
+    else:
+        print("Invalid choice!")
